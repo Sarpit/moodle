@@ -1,5 +1,7 @@
 FROM ubuntu
 
+USER root
+
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get -y  update
