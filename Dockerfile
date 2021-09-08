@@ -1,13 +1,13 @@
-FROM ubuntu
+FROM centos
 
 USER root
 
-ENV DEBIAN_FRONTEND=noninteractive
+RUN yum  update -y
 
-RUN apt-get -y  update
-
-RUN apt-get -y install apache2
+RUN yum install nginx -y
 
 EXPOSE 80
 
-CMD apachectl -D FOREGROUND
+STOPSIGNAL SIGTERM
+
+CMD ["nginx", "-g", "daemon off;"]
